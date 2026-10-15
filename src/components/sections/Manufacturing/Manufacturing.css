@@ -1,0 +1,98 @@
+.manufacturing {
+  padding: var(--section-y) 0;
+
+  background: var(--surface);
+}
+
+.manufacturing-grid {
+  display: grid;
+
+  grid-template-columns: 1.1fr 1fr;
+
+  gap: 5rem;
+
+  align-items: center;
+}
+
+.manufacturing-image {
+  height: 650px;
+
+  border-radius: var(--radius-xl);
+
+  overflow: hidden;
+
+  box-shadow: var(--shadow-sm);
+
+  background: var(--gray-100);
+}
+
+.manufacturing-image img {
+  width: 100%;
+
+  height: 100%;
+
+  display: block;
+  object-fit: cover;
+  object-position: 50% 35%;
+}
+
+.features {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 24px;
+}
+
+.feature {
+  padding: 28px;
+
+  background: var(--white);
+
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-sm);
+
+  transition: transform 280ms var(--ease), border-color 280ms var(--ease);
+}
+
+.feature:hover {
+  transform: translateY(-2px);
+
+  box-shadow: var(--shadow-sm);
+}
+
+.feature h4 {
+  color: var(--primary);
+
+  margin-bottom: 12px;
+}
+
+.feature p {
+  color: var(--text-secondary);
+
+  line-height: 1.7;
+}
+
+.manufacturing-cta {
+  margin-top: var(--s-5);
+}
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width: 1024px) {
+  .manufacturing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .manufacturing-image {
+    height: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .features {
+    grid-template-columns: 1fr;
+  }
+}

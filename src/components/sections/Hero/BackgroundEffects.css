@@ -1,0 +1,95 @@
+/* ==========================================================================
+   HERO BACKGROUND
+   --------------------------------------------------------------------------
+   Keeps the site's existing light background and subtle grid treatment.
+   Its job now is to seat the large packaging visual into the environment,
+   so the tint panel is wider and its edge is feathered rather than being
+   a hard vertical rule that would cut across the packaging.
+
+   Flat colour only — the MPB logo contains no gradients. Nothing animates.
+   ========================================================================== */
+
+.hero-background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   Technical grid — hairline engineering grid, fading out toward the bottom.
+   -------------------------------------------------------------------------- */
+
+.bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(1, 43, 100, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(1, 43, 100, 0.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(to bottom, #000 0%, transparent 82%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 82%);
+}
+
+/* --------------------------------------------------------------------------
+   Tint panel behind the packaging. Feathered on its left edge so the
+   packaging appears to sit within a lit environment rather than on a
+   pasted-on rectangle.
+   -------------------------------------------------------------------------- */
+
+.bg-tint {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 54%;
+
+  background: var(--surface);
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 26%,
+    #000 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 26%,
+    #000 100%
+  );
+}
+
+/* --------------------------------------------------------------------------
+   A soft horizon line low in the composition, giving the packaging a
+   surface to sit on. Fades out at both ends.
+   -------------------------------------------------------------------------- */
+
+.bg-rule {
+  position: absolute;
+  left: 40%;
+  right: 0;
+  bottom: 22%;
+  height: 1px;
+
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--border-strong) 22%,
+    var(--border-strong) 78%,
+    transparent
+  );
+}
+
+@media (max-width: 992px) {
+  /* Single-column hero below this width, so a left/right split would no
+     longer line up with anything. */
+  .bg-tint,
+  .bg-rule {
+    display: none;
+  }
+
+  .bg-grid {
+    background-size: 48px 48px;
+  }
+}

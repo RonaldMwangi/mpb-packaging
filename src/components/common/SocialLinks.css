@@ -1,0 +1,8 @@
+.social-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: var(--s-4); }
+.social-links a {
+  display: grid; place-items: center; width: 44px; height: 44px;
+  border: 1px solid var(--text-on-dark-muted); border-radius: 50%;
+  color: var(--white); background: transparent;
+  transition: color 240ms var(--ease), background-color 240ms var(--ease), border-color 240ms var(--ease);
+}
+.social-links a:hover { color: var(--dark-deep); background: var(--secondary); border-color: var(--secondary); }

@@ -1,0 +1,347 @@
+.print-motif-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.print-motif-section > .container {
+  position: relative;
+  z-index: 2;
+}
+
+.section-motif {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  color: var(--primary);
+  pointer-events: none;
+}
+
+.contact > .section-motif {
+  color: var(--secondary);
+}
+
+.section-motif > span {
+  position: absolute;
+  display: none;
+  pointer-events: none;
+}
+
+.motif-registration-mark {
+  width: 72px;
+  height: 72px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  opacity: 0.12;
+}
+
+.motif-registration-mark::before,
+.motif-registration-mark::after {
+  content: "";
+  position: absolute;
+  background: currentColor;
+}
+
+.motif-registration-mark::before {
+  top: -18px;
+  bottom: -18px;
+  left: 50%;
+  width: 1px;
+}
+
+.motif-registration-mark::after {
+  top: 50%;
+  right: -18px;
+  left: -18px;
+  height: 1px;
+}
+
+.motif-crop-mark {
+  width: 100px;
+  height: 100px;
+  border-top: 1px solid currentColor;
+  border-left: 1px solid currentColor;
+  opacity: 0.1;
+}
+
+.motif-crop-mark::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 28px;
+  height: 28px;
+  border-right: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+}
+
+.motif-halftone-field {
+  width: 180px;
+  height: 132px;
+  opacity: 0.11;
+  background-image: radial-gradient(circle, currentColor 1.2px, transparent 1.4px);
+  background-size: 12px 12px;
+  mask-image: linear-gradient(135deg, #000, transparent 76%);
+  -webkit-mask-image: linear-gradient(135deg, #000, transparent 76%);
+}
+
+.motif-dieline-path {
+  width: 250px;
+  height: 156px;
+  border: 1px dashed currentColor;
+  border-radius: var(--radius-lg);
+  opacity: 0.09;
+}
+
+.motif-dieline-path::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 38%;
+  border-left: 1px dashed currentColor;
+}
+
+.motif-dieline-path::after {
+  content: "";
+  position: absolute;
+  top: 32%;
+  right: -26px;
+  width: 26px;
+  height: 52px;
+  border: 1px dashed currentColor;
+  border-left: 0;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.motif-film-web {
+  width: 330px;
+  height: 138px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  opacity: 0.08;
+}
+
+.motif-film-web::before,
+.motif-film-web::after {
+  content: "";
+  position: absolute;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+}
+
+.motif-film-web::before {
+  inset: 24px 52px;
+}
+
+.motif-film-web::after {
+  top: 50%;
+  left: -90px;
+  width: 510px;
+  height: 1px;
+  border-width: 1px 0 0;
+  border-radius: 0;
+}
+
+.motif-registration .motif-registration-mark,
+.motif-registration .motif-crop-mark,
+.motif-registration .motif-halftone-field,
+.motif-halftone .motif-registration-mark,
+.motif-halftone .motif-halftone-field,
+.motif-halftone .motif-dieline-path,
+.motif-dieline .motif-registration-mark,
+.motif-dieline .motif-crop-mark,
+.motif-dieline .motif-dieline-path,
+.motif-web .motif-registration-mark,
+.motif-web .motif-crop-mark,
+.motif-web .motif-film-web {
+  display: block;
+}
+
+.section-motif .motif-secondary {
+  display: block;
+}
+
+.motif-registration-mark.motif-secondary {
+  top: auto;
+  right: auto;
+  bottom: 6%;
+  left: 1.5%;
+  width: 48px;
+  height: 48px;
+  opacity: 0.08;
+}
+
+.motif-crop-mark.motif-secondary {
+  top: 5%;
+  right: 2%;
+  bottom: auto;
+  left: auto;
+  width: 72px;
+  height: 72px;
+  rotate: 90deg;
+  opacity: 0.08;
+}
+
+.motif-registration .motif-registration-mark {
+  top: 14%;
+  right: 4%;
+}
+
+.motif-registration .motif-crop-mark {
+  right: 8%;
+  bottom: 8%;
+  rotate: 180deg;
+}
+
+.motif-registration .motif-halftone-field {
+  bottom: 5%;
+  left: 2%;
+}
+
+.motif-halftone .motif-halftone-field {
+  top: 8%;
+  right: 2%;
+  rotate: 180deg;
+}
+
+.motif-halftone .motif-registration-mark {
+  bottom: 10%;
+  left: 4%;
+}
+
+.motif-halftone .motif-dieline-path {
+  right: 9%;
+  bottom: -44px;
+  rotate: -7deg;
+}
+
+.motif-dieline .motif-dieline-path {
+  top: 9%;
+  right: -34px;
+  rotate: 6deg;
+}
+
+.motif-dieline .motif-crop-mark {
+  bottom: 7%;
+  left: 3%;
+}
+
+.motif-dieline .motif-registration-mark {
+  right: 11%;
+  bottom: 9%;
+}
+
+.motif-web .motif-film-web {
+  right: -96px;
+  bottom: 5%;
+  rotate: -5deg;
+}
+
+.motif-web .motif-crop-mark {
+  top: 8%;
+  left: 3%;
+}
+
+.motif-web .motif-registration-mark {
+  top: 12%;
+  right: 8%;
+}
+
+/* Keep every mark inside the section's reserved top/bottom padding bands.
+   This prevents decoration from ever sitting behind content at any width. */
+.section-motif .motif-registration-mark:not(.motif-secondary) {
+  top: 8px;
+  right: 5%;
+  bottom: auto;
+  left: auto;
+  width: 36px;
+  height: 36px;
+  rotate: 0deg;
+}
+
+.section-motif .motif-registration-mark::before {
+  top: -10px;
+  bottom: -10px;
+}
+
+.section-motif .motif-registration-mark::after {
+  right: -10px;
+  left: -10px;
+}
+
+.section-motif .motif-crop-mark:not(.motif-secondary) {
+  top: auto;
+  right: auto;
+  bottom: 8px;
+  left: 4%;
+  width: 44px;
+  height: 44px;
+  rotate: 0deg;
+}
+
+.section-motif .motif-halftone-field {
+  top: 8px;
+  right: 18%;
+  bottom: auto;
+  left: auto;
+  width: 140px;
+  height: 42px;
+  rotate: 0deg;
+}
+
+.section-motif .motif-dieline-path {
+  top: auto;
+  right: 14%;
+  bottom: 8px;
+  left: auto;
+  width: 150px;
+  height: 44px;
+  rotate: 0deg;
+}
+
+.section-motif .motif-film-web {
+  top: auto;
+  right: 8%;
+  bottom: 8px;
+  left: auto;
+  width: 220px;
+  height: 42px;
+  rotate: 0deg;
+}
+
+.section-motif .motif-registration-mark.motif-secondary {
+  top: 8px;
+  right: auto;
+  bottom: auto;
+  left: 18%;
+  width: 32px;
+  height: 32px;
+}
+
+.section-motif .motif-crop-mark.motif-secondary {
+  top: 8px;
+  right: auto;
+  bottom: auto;
+  left: 4%;
+  width: 44px;
+  height: 44px;
+  rotate: 90deg;
+}
+
+@media (max-width: 768px) {
+  .section-motif {
+    opacity: 0.82;
+  }
+
+  .motif-dieline-path,
+  .motif-film-web {
+    scale: 0.78;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-motif * {
+    transition: none !important;
+  }
+}

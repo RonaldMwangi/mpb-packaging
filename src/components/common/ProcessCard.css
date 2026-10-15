@@ -1,0 +1,71 @@
+.process-card {
+  background: var(--white);
+
+  border: 1px solid var(--border);
+
+  padding: 40px 32px;
+
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-sm);
+
+  transition: transform 280ms var(--ease), border-color 280ms var(--ease);
+
+  text-align: center;
+
+  height: 100%;
+}
+
+.process-card:hover {
+  transform: translateY(-2px);
+
+  box-shadow: var(--shadow-sm);
+}
+
+.process-number {
+  width: 70px;
+
+  height: 70px;
+
+  border-radius: var(--radius-md);
+
+  background: var(--primary);
+
+  color: var(--white);
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  font-size: var(--fs-h3);
+
+  font-weight: bold;
+
+  margin: auto;
+
+  margin-bottom: 24px;
+}
+
+.process-card h3 {
+  margin-bottom: 16px;
+
+  color: var(--text-primary);
+}
+
+.process-card p {
+  color: var(--text-secondary);
+
+  line-height: 1.8;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .process-card {
+    padding: var(--s-5) var(--s-4);
+  }
+}

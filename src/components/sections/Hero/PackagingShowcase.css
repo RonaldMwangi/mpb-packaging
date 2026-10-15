@@ -1,0 +1,237 @@
+/* ==========================================================================
+   PACKAGING SHOWCASE
+   --------------------------------------------------------------------------
+   The cinematic packaging sequence. Deliberately has NO card, NO border and
+   NO panel — the packs sit directly in the hero environment, lit by a soft
+   bloom and grounded by their own contact shadows.
+
+   All colours come from the existing MPB tokens. Nothing new is introduced.
+   ========================================================================== */
+
+.showcase {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --------------------------------------------------------------------------
+   LIGHT BLOOM
+   A wide, very soft brand-cyan glow that seats the packaging into the
+   background instead of letting it look pasted on top.
+   -------------------------------------------------------------------------- */
+
+.showcase-bloom {
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: min(150%, 900px);
+  aspect-ratio: 1;
+
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(40, 170, 225, 0.16) 0%,
+      rgba(40, 170, 225, 0.06) 34%,
+      rgba(40, 170, 225, 0) 62%
+    );
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* --------------------------------------------------------------------------
+   STAGE
+   Fixed aspect ratio so nothing reflows as formats swap — no layout shift.
+   -------------------------------------------------------------------------- */
+
+.showcase-stage {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  /* The visual is intentionally large: it is the first thing seen. */
+  height: clamp(340px, 54vh, 580px);
+}
+
+.pack {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Hints the compositor before the transition starts. */
+  will-change: transform, opacity, filter;
+}
+
+.pack-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* --------------------------------------------------------------------------
+   DEPTH LAYER
+   The previous and next formats, pushed back with blur and low opacity so
+   the composition has foreground and background rather than one flat plane.
+   -------------------------------------------------------------------------- */
+
+.pack-ghosts {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.pack-ghost {
+  filter: blur(7px);
+}
+
+.pack-ghost-left {
+  transform: translateX(-27%) scale(0.72);
+}
+
+.pack-ghost-right {
+  transform: translateX(27%) scale(0.72);
+}
+
+.pack-current {
+  z-index: 2;
+}
+
+/* --------------------------------------------------------------------------
+   CATEGORY LABEL + PROGRESS
+   Subtle by design. This must not compete with the headline.
+   -------------------------------------------------------------------------- */
+
+.showcase-meta {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s-3);
+
+  margin-top: var(--s-4);
+}
+
+/* Fixed height so the crossfading label never nudges the progress bar. */
+.showcase-label-slot {
+  position: relative;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.showcase-label {
+  position: absolute;
+  margin: 0;
+  white-space: nowrap;
+
+  font-size: var(--fs-label);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.showcase-progress {
+  display: flex;
+  gap: var(--s-2);
+}
+
+.seg {
+  position: relative;
+  overflow: hidden;
+
+  width: 34px;
+  height: 3px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-xs);
+  background: var(--border-strong);
+  cursor: pointer;
+
+  transition: background-color var(--transition-normal);
+}
+
+.seg:hover {
+  background: var(--text-muted);
+}
+
+.seg-active {
+  background: var(--border-strong);
+}
+
+/* The fill that sweeps across the active segment over the dwell time. */
+.seg-fill {
+  position: absolute;
+  inset: 0;
+  display: block;
+  background: var(--primary);
+  transform-origin: left center;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+/* ---------- Tablet ---------- */
+@media (max-width: 992px) {
+  .showcase-stage {
+    height: clamp(320px, 44vh, 460px);
+  }
+
+  .pack-ghost-left {
+    transform: translateX(-30%) scale(0.68);
+  }
+
+  .pack-ghost-right {
+    transform: translateX(30%) scale(0.68);
+  }
+}
+
+/* ---------- Mobile ----------
+   The packaging must stay prominent on mobile, so the stage keeps real
+   height. The side ghosts are dropped because there is no room for them
+   to read as depth rather than clutter. */
+@media (max-width: 576px) {
+  .showcase-stage {
+    height: clamp(300px, 40vh, 380px);
+  }
+
+  .pack-ghosts {
+    display: none;
+  }
+
+  .showcase-bloom {
+    width: min(190%, 620px);
+  }
+
+  .seg {
+    width: 26px;
+  }
+}
+
+/* ==========================================================================
+   REDUCED MOTION
+   --------------------------------------------------------------------------
+   The component already stops the sequence in JS via useReducedMotion.
+   This removes the residual blur so the single static pack is fully sharp.
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .pack-ghost {
+    display: none;
+  }
+
+  .pack,
+  .pack-current {
+    filter: none;
+    will-change: auto;
+  }
+}

@@ -1,0 +1,52 @@
+.talent-page { position: relative; overflow: hidden; padding: var(--section-y-tight) 0 var(--section-y); background: var(--surface); }
+.talent-layout { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); align-items: start; gap: clamp(32px, 5vw, 64px); }
+.talent-intro, .talent-panel { min-width: 0; }
+.talent-back { display: block; width: fit-content; min-height: 44px; margin-bottom: 16px; font-size: var(--fs-sm); text-decoration: underline; text-underline-offset: 4px; }
+.talent-intro .eyebrow { margin-bottom: 24px; }
+.talent-intro h1 { color: var(--primary); font-size: clamp(2.25rem, 4vw, 3.5rem); max-width: 13ch; margin-bottom: 24px; }
+.talent-intro p { color: var(--text-muted); margin-bottom: 24px; max-width: 48ch; }
+.talent-intro .talent-lead { font-size: var(--fs-lead); color: var(--primary); }
+.talent-areas { margin-top: 32px; border-top: 1px solid var(--border-strong); padding-top: 24px; }
+.talent-areas h2 { font-size: var(--fs-h4); color: var(--primary); margin-bottom: 16px; }
+.talent-areas ul { display: grid; gap: 12px; }
+.talent-areas li { display: flex; align-items: baseline; gap: 12px; }
+.talent-areas li::before { content: ""; flex: 0 0 6px; width: 6px; height: 6px; background: var(--secondary); }
+.talent-panel { background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--secondary); border-radius: var(--radius-xl); padding: clamp(20px, 2.5vw, 32px); box-shadow: var(--shadow-sm); }
+.talent-panel h2 { color: var(--primary); font-size: var(--fs-h3); margin-bottom: 12px; }
+.talent-form-note, .talent-hint, .talent-count, .talent-privacy, .talent-optional { font-size: var(--fs-sm); color: var(--text-muted); }
+.talent-form-note { margin-bottom: 24px; }
+.talent-availability, .talent-feedback { color: var(--primary); background: var(--cyan-50); border-left: 3px solid var(--accent); padding: 16px; font-size: var(--fs-sm); margin-bottom: 24px; }
+.talent-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 16px; min-width: 0; border: 0; }
+.talent-field { min-width: 0; }
+.talent-field-wide, .talent-submit { grid-column: 1 / -1; }
+.talent-field > label { display: block; color: var(--primary); font-weight: var(--fw-semibold); margin-bottom: 8px; }
+.talent-optional { font-weight: var(--fw-regular); }
+.talent-hint { margin-bottom: 8px; }
+.talent-field input, .talent-field select, .talent-field textarea { display: block; width: 100%; min-width: 0; min-height: 48px; padding: 10px 12px; font-size: 1rem; color: var(--text); background: var(--white); border: 1px solid var(--text-muted); border-radius: var(--radius-sm); }
+.talent-field textarea { resize: vertical; }
+.talent-field input[type="file"] { font-size: var(--fs-sm); overflow: hidden; padding: 8px; }
+.talent-field input::file-selector-button { font: inherit; color: var(--primary); background: var(--cyan-50); border: 1px solid var(--primary); border-radius: var(--radius-sm); min-height: 44px; padding: 8px 12px; margin-right: 12px; cursor: pointer; }
+.talent-count { margin-top: 4px; text-align: right; }
+.talent-error { font-size: var(--fs-sm); color: var(--primary); font-weight: var(--fw-semibold); margin-top: 8px; }
+.talent-field [aria-invalid="true"] { border: 2px solid var(--primary); }
+.talent-consent label { display: flex; gap: 12px; align-items: flex-start; cursor: pointer; min-height: 44px; }
+.talent-consent input { flex: 0 0 22px; width: 22px; height: 22px; margin-top: 3px; accent-color: var(--primary); }
+.talent-consent span { font-size: var(--fs-sm); }
+.talent-privacy a { text-decoration: underline; text-underline-offset: 3px; }
+.talent-submit { justify-self: start; }
+.talent-submit:disabled { opacity: .7; cursor: wait; }
+.talent-feedback { margin: 20px 0 0; }
+.talent-success { display: grid; gap: 24px; }
+.talent-success svg { color: var(--primary); }
+.talent-success .btn-primary { justify-self: start; }
+@media (max-width: 1024px) {
+  .talent-layout { grid-template-columns: 1fr; max-width: 840px; gap: 32px; }
+  .talent-intro h1 { max-width: 20ch; }
+  .talent-intro p { max-width: none; }
+  .talent-areas ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 576px) {
+  .talent-fields { grid-template-columns: 1fr; }
+  .talent-submit { width: 100%; }
+  .talent-areas ul { grid-template-columns: 1fr; gap: 8px; }
+}

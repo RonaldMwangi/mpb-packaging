@@ -1,0 +1,211 @@
+/* ==========================================================================
+   MPB PACKAGING — DESIGN TOKENS
+   --------------------------------------------------------------------------
+   Single source of truth for colour, typography, spacing and motion.
+   Change a value here and it updates everywhere on the site.
+
+   Brand colours were sampled directly from src/assets/Images/logo.png.
+   The dark colour is taken from the live site, https://www.mpb.co.ke.
+   ========================================================================== */
+
+:root {
+  /* ========================================================================
+     BRAND COLOURS  —  sampled from the logo, do not alter
+     ====================================================================== */
+
+  --brand-navy: #2e3192; /* 73% of the logo's ink */
+  --brand-cyan: #28aae1; /* 27% of the logo's ink */
+
+  /* ========================================================================
+     NAVY RAMP  —  lightness variations only, no new hues
+     ====================================================================== */
+
+  --navy-900: #011c42;
+  --navy-800: #012b64; /* the live mpb.co.ke navy */
+  --navy-700: #1b1f4b;
+  --navy-600: #242873;
+  --navy-500: #2e3192;
+  --navy-400: #4a4db0;
+
+  /* ========================================================================
+     CYAN RAMP
+     ====================================================================== */
+
+  --cyan-700: #0c74a8; /* contrast-corrected: 5.15:1 on white, safe for text */
+  --cyan-500: #28aae1; /* the logo cyan: 2.65:1 — graphics only */
+  --cyan-100: #d6ecf8;
+  --cyan-50: #e8f4fb;
+
+  /* ========================================================================
+     SEMANTIC COLOURS
+     ====================================================================== */
+
+  --primary: var(--brand-navy); /* 10.66:1 on white */
+  --secondary: var(--brand-cyan); /*  2.65:1 — never use as text on white */
+  --accent: var(--cyan-700); /*  5.15:1 — use for cyan text and links */
+  --dark: var(--navy-800); /* 13.72:1 — dark sections, footer */
+  --dark-deep: var(--navy-900);
+
+  --hover: var(--navy-600); /* interactive states darken, never lighten */
+  --active: var(--navy-700);
+
+  --background: #ffffff;
+  --bg: #ffffff;
+  --surface: #f5f7fa; /* cool-tinted; warmth would read hospitality */
+  --surface-2: #eef1f6;
+
+  --text: #141829; /* 17.61:1 — navy-tinted near-black */
+  --text-muted: #5a6478; /*  5.95:1 — passes AA, unlike #777 at 4.48:1 */
+  --text-on-dark: #ffffff;
+  --text-on-dark-muted: #b4bdd0; /*  9.67:1 on --dark */
+
+  --border: #e1e5ee;
+  --border-strong: #c9d0de;
+  --border-on-dark: rgba(255, 255, 255, 0.14);
+
+  --focus-ring: var(--brand-cyan);
+
+  /* ========================================================================
+     NEUTRALS  —  retained so existing component CSS keeps working
+     ====================================================================== */
+
+  --white: #ffffff;
+  --black: #141829;
+
+  --gray-50: #fafbfc;
+  --gray-100: #f3f5f7;
+  --gray-200: #e4e7eb;
+  --gray-400: #b3bcc8;
+  --gray-700: #5a6478;
+  --gray-900: #141829;
+
+  /* Aliases kept for backwards compatibility with existing components */
+  --text-primary: var(--text);
+  --text-secondary: var(--text-muted);
+
+  /* ========================================================================
+     TYPOGRAPHY  —  Raleway, matching https://www.mpb.co.ke
+     ====================================================================== */
+
+  --font-primary:
+    "Raleway", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-heading: var(--font-primary);
+  --font-body: var(--font-primary);
+
+  /* Weights: 400 body · 500 UI · 600 H3/H4 · 700 H2 · 800 H1 */
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+
+  /* Fluid type scale — clamp() removes most need for media queries */
+  --fs-h1: clamp(2.25rem, 5vw, 4rem); /* 36 → 64px */
+  --fs-h2: clamp(1.75rem, 3.2vw, 2.75rem); /* 28 → 44px */
+  --fs-h3: clamp(1.25rem, 1.8vw, 1.625rem); /* 20 → 26px */
+  --fs-h4: 1.125rem; /* 18px */
+  --fs-lead: clamp(1.0625rem, 1.5vw, 1.1875rem); /* 17 → 19px */
+  --fs-body: 1rem; /* 16px */
+  --fs-sm: 0.875rem; /* 14px */
+  --fs-label: 0.75rem; /* 12px */
+  --fs-nav: 0.9375rem; /* 15px */
+  --fs-btn: 0.9375rem; /* 15px */
+
+  --lh-tight: 1.06;
+  --lh-heading: 1.15;
+  --lh-snug: 1.3;
+  --lh-body: 1.7;
+  --lh-relaxed: 1.8;
+
+  --ls-display: -0.02em; /* large type tightens */
+  --ls-heading: -0.015em;
+  --ls-label: 0.1em; /* small type opens */
+
+  --measure: 68ch; /* max comfortable line length */
+
+  /* Legacy size scale — retained for existing components */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.0625rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: var(--fs-h3);
+  --text-4xl: var(--fs-h2);
+  --text-5xl: var(--fs-h1);
+
+  /* ========================================================================
+     SPACING  —  8px grid
+     ====================================================================== */
+
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 16px;
+  --s-4: 24px;
+  --s-5: 32px;
+  --s-6: 48px;
+  --s-7: 64px;
+  --s-8: 96px;
+  --s-9: 128px;
+
+  /* Legacy spacing scale, remapped onto the 8px grid */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 80px;
+  --space-10: 96px;
+
+  /* One vertical rhythm for every section on the site */
+  --section-y: clamp(64px, 8vw, 112px);
+  --section-y-tight: clamp(48px, 6vw, 80px);
+
+  /* ========================================================================
+     LAYOUT
+     ====================================================================== */
+
+  --container: 1200px;
+  --container-width: 1200px;
+  --container-narrow: 1100px;
+  --gutter: clamp(20px, 4vw, 40px);
+  --navbar-h: 88px;
+  --navbar-h-scrolled: 72px;
+
+  /* ========================================================================
+     RADII  —  tight and industrial; the live site's buttons use 3px
+     ====================================================================== */
+
+  --radius-xs: 2px;
+  --radius-sm: 4px; /* the standard button radius */
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-full: 999px; /* circles/avatars only, not buttons */
+
+  /* ========================================================================
+     SHADOWS  —  tight and navy-tinted; prefer 1px borders where possible
+     ====================================================================== */
+
+  --shadow-sm: 0 1px 2px rgba(1, 43, 100, 0.06);
+  --shadow-md: 0 4px 12px rgba(1, 43, 100, 0.08);
+  --shadow-lg: 0 12px 28px rgba(1, 43, 100, 0.1);
+  --shadow-dark: 0 12px 32px rgba(1, 20, 45, 0.24);
+
+  /* ========================================================================
+     MOTION
+     ====================================================================== */
+
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+  --dur-fast: 120ms;
+  --dur-base: 200ms;
+  --dur-slow: 320ms;
+
+  --transition-fast: var(--dur-fast) var(--ease);
+  --transition-normal: var(--dur-base) var(--ease);
+  --transition-slow: var(--dur-slow) var(--ease);
+  --animation-duration: var(--dur-slow);
+}

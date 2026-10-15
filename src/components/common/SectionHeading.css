@@ -1,0 +1,50 @@
+/* ==========================================================================
+   SECTION HEADING
+   --------------------------------------------------------------------------
+   The canonical section heading for the whole site. The h2 size, eyebrow
+   and description all come from the shared token scale, so every section
+   heading matches. Previously this file hardcoded Bootstrap greys and a
+   3rem h2 that disagreed with both globals.css and Contact.css.
+   ========================================================================== */
+
+.section-heading {
+  margin-bottom: var(--s-7);
+}
+
+.section-heading.center {
+  text-align: center;
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+.section-heading.left {
+  max-width: 700px;
+}
+
+/* .eyebrow itself is defined once in styles/globals.css */
+.section-heading .eyebrow {
+  margin-bottom: var(--s-3);
+}
+
+/* Inherits size/weight/line-height from the global h2 rule. */
+.section-heading h2 {
+  color: var(--primary);
+  margin-bottom: var(--s-3);
+}
+
+.section-heading .description {
+  font-size: var(--fs-lead);
+  line-height: var(--lh-body);
+  color: var(--text-muted);
+  margin-top: 0;
+}
+
+.section-heading.center .description {
+  margin-inline: auto;
+}
+
+@media (max-width: 768px) {
+  .section-heading {
+    margin-bottom: var(--s-6);
+  }
+}

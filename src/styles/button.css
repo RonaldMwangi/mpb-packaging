@@ -1,0 +1,210 @@
+/* ==========================================================================
+   MPB PACKAGING — BUTTON SYSTEM
+   --------------------------------------------------------------------------
+   Every button on the site uses .btn plus one variant class. The 4px radius
+   matches the live mpb.co.ke site, which uses border-radius:3px on its own
+   buttons. This replaces the 999px pills that were used before.
+
+   Usage:  <button className="btn btn-primary">Request a Quote</button>
+   ========================================================================== */
+
+.btn,
+.btn-primary,
+.btn-secondary,
+.btn-outline,
+.btn-ghost,
+.btn-on-dark,
+.btn-outline-on-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-2);
+
+  font-family: var(--font-primary);
+  font-size: var(--fs-btn);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.01em;
+  line-height: 1;
+  white-space: nowrap;
+
+  min-height: 48px;
+  padding: 0 26px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    background-color var(--transition-normal),
+    border-color var(--transition-normal),
+    color var(--transition-normal),
+    transform var(--transition-fast);
+}
+
+/* Icons sit optically centred with the label */
+.btn svg,
+.btn-primary svg,
+.btn-secondary svg,
+.btn-outline svg,
+.btn-ghost svg,
+.btn-on-dark svg,
+.btn-outline-on-dark svg {
+  flex-shrink: 0;
+  transition: transform var(--transition-normal);
+}
+
+.btn:active,
+.btn-primary:active,
+.btn-secondary:active,
+.btn-outline:active,
+.btn-ghost:active,
+.btn-on-dark:active,
+.btn-outline-on-dark:active {
+  transform: translateY(1px);
+}
+
+/* --------------------------------------------------------------------------
+   PRIMARY — the main call to action
+   -------------------------------------------------------------------------- */
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--white);
+  border-color: var(--primary);
+}
+
+.btn-primary:hover {
+  background: var(--secondary);
+  border-color: var(--secondary);
+  color: var(--white);
+}
+
+/* --------------------------------------------------------------------------
+   SECONDARY — deep navy, for use on light backgrounds beside a primary
+   -------------------------------------------------------------------------- */
+
+.btn-secondary {
+  background: var(--secondary);
+  color: var(--white);
+  border-color: var(--secondary);
+}
+
+.btn-secondary:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--white);
+}
+
+/* --------------------------------------------------------------------------
+   OUTLINE — lower emphasis, pairs with primary
+   -------------------------------------------------------------------------- */
+
+.btn-outline {
+  background: transparent;
+  color: var(--primary);
+  border-color: var(--border-strong);
+}
+
+.btn-outline:hover {
+  background: var(--cyan-50);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* --------------------------------------------------------------------------
+   GHOST — text-level action, e.g. "Learn more"
+   -------------------------------------------------------------------------- */
+
+.btn-ghost {
+  background: transparent;
+  color: var(--primary);
+  border-color: transparent;
+}
+
+.btn-ghost:hover {
+  background: var(--cyan-50);
+  color: var(--hover);
+}
+
+/* --------------------------------------------------------------------------
+   ON DARK BACKGROUNDS
+   -------------------------------------------------------------------------- */
+
+.btn-on-dark {
+  background: var(--white);
+  color: var(--dark);
+  border-color: var(--white);
+}
+
+.btn-on-dark:hover {
+  background: var(--cyan-50);
+  color: var(--dark);
+  border-color: var(--cyan-50);
+}
+
+.btn-outline-on-dark {
+  background: transparent;
+  color: var(--white);
+  border-color: var(--border-on-dark);
+}
+
+.btn-outline-on-dark:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: var(--white);
+}
+
+/* --------------------------------------------------------------------------
+   SIZES
+   -------------------------------------------------------------------------- */
+
+.btn-sm,
+.btn-lg {
+  min-height: 48px;
+  padding: 0 26px;
+  font-size: var(--fs-btn);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   DISABLED
+   -------------------------------------------------------------------------- */
+
+.btn:disabled,
+.btn-primary:disabled,
+.btn-secondary:disabled,
+.btn-outline:disabled,
+.btn-ghost:disabled,
+.btn-on-dark:disabled,
+.btn-outline-on-dark:disabled,
+.btn[aria-disabled="true"] {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn:disabled:hover,
+.btn-primary:disabled:hover,
+.btn-secondary:disabled:hover,
+.btn-outline:disabled:hover,
+.btn-ghost:disabled:hover,
+.btn-on-dark:disabled:hover,
+.btn-outline-on-dark:disabled:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-outline:disabled:hover {
+  background: transparent;
+  border-color: var(--border-strong);
+}
+
+/* Keep brand-cyan hover states readable without changing button geometry. */
+.btn-primary:hover { color: var(--dark-deep); border-color: var(--primary); }
+.btn-secondary { color: var(--dark-deep); border-color: var(--primary); }
+.btn-secondary:hover { color: var(--white); }
+.btn-on-dark:hover { background: var(--secondary); border-color: var(--secondary); color: var(--dark-deep); }
+.btn-outline-on-dark { border-color: var(--text-on-dark-muted); }
